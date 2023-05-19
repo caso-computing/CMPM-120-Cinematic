@@ -442,16 +442,16 @@ class SceneH extends Phaser.Scene
         //mrclean.setScale(400/mrclean.height,400/mrclean.width);
 
         var mrclean = this.add.image(1300,600,'coolcleanv2');
-        mrclean.setScale(600/mrclean.height,600/mrclean.width);
+        mrclean.setScale(400/mrclean.height,400/mrclean.width);
 
         let title = this.add.text(100,0,`MR.CLEAN: ONE LAST CLEAN`, {fontSize:120});
 
-        let box = this.add.text(0, 340,
+        this.textObject = this.add.text(10, 340,
 `PLAY
 OPTIONS
 CREDITS
 EXIT`
-                        ,{fontSize:150});
+                        ,{fontSize:30, scale:0.2});
             
                     
                     /*this.cameras.main.once('camerafadeincomplete', function (camera) {
@@ -459,7 +459,15 @@ EXIT`
                     });
             
                     this.cameras.main.fadeIn(1000);*/
-
+        this.tweens.add({
+            targets: this.textObject,
+            //alpha:0,
+            x:200,
+            y:340,
+            duration:4000,
+            ease:'Linear',
+            repeat: 0,
+        });
         this.input.once('pointerdown', function (event)
         {
 
